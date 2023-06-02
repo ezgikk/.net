@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiApp6.MainPage">
+
+    <ScrollView>
+        <VerticalStackLayout
+            Spacing="25"
+            Padding="30,0"
+            VerticalOptions="Center">
+            <Label Text="ANASAYFA" TextDecorations="Underline" FontSize="25" HorizontalOptions="Center" FontAttributes="Italic" />
+            <Image
+                Source="me.jpg"
+                SemanticProperties.Description="Cute dot net bot waving hi to you!"
+                HeightRequest="200"
+                HorizontalOptions="Center" />
+            <Frame>
+                <Label
+                Text="AD SOYAD: EZGİ KARAKAZAN"
+                SemanticProperties.HeadingLevel="Level1"
+                FontSize="20"
+                HorizontalOptions="Center" 
+                TextColor="Brown"
+                    TextDecorations="None"
+                    TextTransform="None"
+                    FontAttributes="Bold"/>
+            </Frame>
+            <Frame>
+                <Label
+                Text=" ÜNİVERSİTE/ BÖLÜM : 
+                    BARTIN ÜNİVERSİTESİ BİLGİSAYAR MÜHENDİSLİĞİ"
+                SemanticProperties.HeadingLevel="Level2"
+                SemanticProperties.Description="BARTIN ÜNİVERSİTESİ BİLGİSAYAR MÜHENDİSLİĞİ"
+                FontSize="18"
+                    TextColor="Brown"
+                    TextDecorations="None"
+                    TextTransform="None"
+                    FontAttributes="Bold"
+                HorizontalOptions="Center" />
+            </Frame>
+            <Frame>
+                <Label
+                Text=" Ödev-1"
+                SemanticProperties.HeadingLevel="Level2"
+                SemanticProperties.Description="BARTIN ÜNİVERSİTESİ BİLGİSAYAR MÜHENDİSLİĞİ"
+                FontSize="18"
+                    TextColor="Brown"
+                    TextDecorations="None"
+                    TextTransform="None"
+                    FontAttributes="Bold"
+                HorizontalOptions="Center" />
+            </Frame>
+
+          <!--  <Button
+                x:Name="CounterBtn"
+                Text="Click me"
+                SemanticProperties.Hint="Counts the number of times you click"
+                Clicked="OnCounterClicked"
+                HorizontalOptions="Center" /> -->
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

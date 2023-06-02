@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="MauiApp6.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:MauiApp6"
+    Shell.FlyoutBehavior="Flyout">
+
+    <FlyoutItem FlyoutDisplayOptions="AsMultipleItems">
+        
+
+            <ShellContent
+            
+            Title="Home"
+            ContentTemplate="{DataTemplate local:MainPage}"
+            Icon="home.png"
+            Route="MainPage"/>
+        <Tab
+            Title="Kredi Hesaplama"
+            Icon="calculator.png"
+            >
+            <ShellContent
+                x:Name="IhtiyacKredisi"
+                Title="İhtiyaç Kredisi"
+                ContentTemplate="{DataTemplate local:KrediHesaplama}"
+                
+            />
+            <ShellContent
+                
+                Title="Konut Kredisi"
+                ContentTemplate="{DataTemplate local:KrediHesaplama}"
+            />
+            <ShellContent
+                Title="Taşıt Kredisi"
+                ContentTemplate="{DataTemplate local:KrediHesaplama}"
+            />
+            <ShellContent
+                Title="Ticari Kredisi"
+                ContentTemplate="{DataTemplate local:KrediHesaplama}"
+            />
+        </Tab>
+        <ShellContent
+            Title="Vücut Kitle İndeksi"
+            ContentTemplate="{DataTemplate local:VucutKitleİndeksi}"
+            Icon="healthcare.png"
+            Route="VucutKitleİndeksi" />
+        <ShellContent
+            Title="Renk Seçici"
+            ContentTemplate="{DataTemplate local:ColorPicker}"
+            Icon="colors.png"
+            Route="ColorPicker" />
+        <ShellContent
+            Title="Yapılacaklar"
+            ContentTemplate="{DataTemplate local:ToDoList}"
+            Icon="clipboard.png"
+            Route="ToDoList" />
+
+    </FlyoutItem>
+
+
+</Shell>

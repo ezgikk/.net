@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiApp6.KrediHesaplama" >
+    <ContentPage.Resources>
+        <Style TargetType="Label" x:Key="Baslik">
+            <Setter Property="TextColor" Value="OrangeRed" />
+        </Style>
+        <Style TargetType="Label">
+            <Setter Property="TextColor" Value="Orange" />
+            <Setter Property="FontSize" Value="15" />
+            <Setter Property="VerticalOptions" Value="CenterAndExpand" />
+            <Setter Property="HorizontalTextAlignment" Value="End" />
+        </Style>
+    </ContentPage.Resources>
+    
+
+    <ScrollView>
+        <VerticalStackLayout
+            Spacing="25"
+            Padding="30,0"
+            VerticalOptions="Center">
+            
+
+
+            <Grid RowDefinitions="Auto, *">
+
+                <Label x:Name="IhtiyacKredisi" Text="İhtiyaç Kredisi" TextColor="BlueViolet" FontSize="30"
+                FontAttributes="Bold,Italic" Grid.Row="0" HorizontalOptions="Center" Style="{StaticResource Baslik}"/>
+                
+
+                <Grid Grid.Row="1" ColumnDefinitions="Auto, *" ColumnSpacing="10" Margin="20" 
+              RowDefinitions="Auto, Auto, Auto" RowSpacing="5 ">
+                    <Label Grid.Row="0" Text="Kredi Tutarı(TL)"/>
+                    <Label  Grid.Row="1" Text="Faiz Oranı(%)"/>
+                    <Label  Grid.Row="2" Text="Vade(Ay)"/>
+
+
+
+                    <Entry x:Name="Tutar" Grid.Column="1" Grid.Row="0" Placeholder="Kredi Tutarı"/>
+                    <Entry x:Name="Oran" Grid.Column="1" Grid.Row="1" Placeholder="Faiz Oranı"/>
+                    <Entry x:Name="Vade" Grid.Column="1" Grid.Row="2" Placeholder="Vade"/>
+
+
+
+
+                </Grid>
+                
+                
+
+            </Grid>
+            <HorizontalStackLayout HorizontalOptions="Center">
+
+                <Label Text="Aylık Taksit:" Grid.Row="0" Background="beige" BackgroundColor="AliceBlue" TextColor="Black" HorizontalOptions="CenterAndExpand"/>
+                <Entry Placeholder="Aylık Taksit:" Grid.Row="0" Grid.Column="0" Background="beige" BackgroundColor="AliceBlue" TextColor="Black" HorizontalOptions="CenterAndExpand"/>
+            </HorizontalStackLayout>
+            <HorizontalStackLayout HorizontalOptions="Center">
+                <Label Text="Toplam ödeme:" Grid.Row="0" Background="beige" BackgroundColor="AliceBlue" TextColor="Black" HorizontalOptions="Center"/>
+                <Entry Placeholder="Toplam ödeme:" Grid.Row="0" Grid.Column="1" Background="beige" BackgroundColor="AliceBlue" TextColor="Black" HorizontalOptions="Center"/>
+            </HorizontalStackLayout >
+            <HorizontalStackLayout HorizontalOptions="Center">
+                <Label Text="Toplam Faiz:" Grid.Row="0" Background="beige" BackgroundColor="AliceBlue" TextColor="Black" HorizontalOptions="Center"/>
+                
+                
+                <Entry Placeholder="Toplam Faiz:" Grid.Row="0" Grid.Column="2" Background="beige" BackgroundColor="AliceBlue" TextColor="Black" HorizontalOptions="Center"/>
+
+            </HorizontalStackLayout>
+            <Button Grid.Row="5"
+                
+                Text="Hesapla"
+                Clicked="CounterBtn_Clicked"
+                HorizontalOptions="Center"/>
+            
+
+
+
+
+
+
+
+
+
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+
+
+
+</ContentPage>
+

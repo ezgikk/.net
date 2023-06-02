@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiApp6.ColorPicker"
+             Title="ColorPicker">
+    <VerticalStackLayout>
+        <Frame>
+            <Label 
+            Text="Renk Seçici"
+                TextColor="DarkGreen"
+            TextDecorations="Underline"
+            FontSize="Medium"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+            
+        </Frame>
+        <Frame>
+            <Label Text="Sarı Ton:" TextColor="Yellow" x:Name="sarı" />
+        </Frame>
+
+        <Slider BackgroundColor="Yellow" />
+        <Frame>
+            <Label Text="Mavi Ton:" TextColor="Blue" />
+            </Frame>
+                <Slider BackgroundColor="Blue" />
+        <Frame>
+            <Label Text="Kırmızı Ton:" TextColor="Red" />
+            </Frame>
+                <Slider BackgroundColor="Red"/>
+        <StackLayout Orientation="Horizontal" Spacing="30">
+            <Frame BorderColor="Black" HorizontalOptions="Start">
+            <StackLayout Orientation="Horizontal" Spacing="30" >
+
+                <BoxView Color="Yellow" HeightRequest="100" WidthRequest="100" />
+                <BoxView Color="Blue" HeightRequest="100" WidthRequest="100"/>
+                <BoxView Color="Red" HeightRequest="100" WidthRequest="100"/>
+                
+
+            </StackLayout>
+            
+        </Frame>
+        <Label Text="  ---->>>  " TextColor="Brown" FontSize="Header" HorizontalOptions="Center" Padding="50" Margin="50" />
+            <BoxView Color="Black" HeightRequest="100" WidthRequest="100" />
+            
+        </StackLayout>
+    </VerticalStackLayout>
+</ContentPage>
