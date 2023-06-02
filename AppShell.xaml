@@ -15,30 +15,12 @@
             ContentTemplate="{DataTemplate local:MainPage}"
             Icon="home.png"
             Route="MainPage"/>
-        <Tab
+        <ShellContent
             Title="Kredi Hesaplama"
+            ContentTemplate="{DataTemplate local:KrediHesaplama}"
             Icon="calculator.png"
-            >
-            <ShellContent
-                x:Name="IhtiyacKredisi"
-                Title="İhtiyaç Kredisi"
-                ContentTemplate="{DataTemplate local:KrediHesaplama}"
-                
-            />
-            <ShellContent
-                
-                Title="Konut Kredisi"
-                ContentTemplate="{DataTemplate local:KrediHesaplama}"
-            />
-            <ShellContent
-                Title="Taşıt Kredisi"
-                ContentTemplate="{DataTemplate local:KrediHesaplama}"
-            />
-            <ShellContent
-                Title="Ticari Kredisi"
-                ContentTemplate="{DataTemplate local:KrediHesaplama}"
-            />
-        </Tab>
+            Route="KrediHesaplama" />
+        
         <ShellContent
             Title="Vücut Kitle İndeksi"
             ContentTemplate="{DataTemplate local:VucutKitleİndeksi}"
