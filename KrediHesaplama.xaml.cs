@@ -1,66 +1,86 @@
-﻿namespace MauiApp6;
+using System.Globalization;
+
+namespace MauiApp6;
 
 public partial class KrediHesaplama : ContentPage
 {
-	public KrediHesaplama()
-	{
+    private readonly CultureInfo culture = new CultureInfo("tr-TR");
+
+
+    public KrediHesaplama()
+    {
         InitializeComponent();
-	}
+    }
 
-    
-
-    private static KrediHesaplama instance;
-    private int taksit;
-
-    public static KrediHesaplama Page
+    public static (double, double) GetKkdfAndBsmv(string krediTuru)
     {
-        get
+        double kkdfOrani = 0;
+        double bsmvOrani = 0;
+
+        if (krediTuru == "İhtiyaç Kredisi")
         {
-            if (instance == null)
-                instance = new KrediHesaplama();
-            return instance;
+            kkdfOrani = 0.15;
+            bsmvOrani = 0.1;
         }
+        else if (krediTuru == "Konut Kredisi")
+        {
+            kkdfOrani = 0;
+            bsmvOrani = 0;
+        }
+        else if (krediTuru == "Taşıt Kredisi" || krediTuru == "Ticari Kredi")
+        {
+            kkdfOrani = 0.15;
+            bsmvOrani = 0.05;
+        }
+        else
+        {
+            throw new ArgumentException("Geçersiz kredi türü.");
+        }
+
+        return (kkdfOrani, bsmvOrani);
     }
-
-    
-    public int Toplam { get; private set; }
-    public int Taksit { get; private set; }
-    public object TextBox { get; private set; }
-    public int BrutFaiz { get; private set; }
-
-    
-    protected override void OnAppearing()
-    {
-        base.OnAppearing();
-        
-
-    }
-    private int GetTaksit()
-    {
-        return Taksit;
-    }
-
 
     private void CounterBtn_Clicked(object sender, EventArgs e)
     {
-        var s = sender as Button;
-        DisplayAlert ("HESAPLANIYOR", $"Tıkladın", "ok");
-        int Oran = int.Parse((string)TextBox);
-        int Vade = int.Parse((string)TextBox);
-        int Tutar = int.Parse((string)TextBox);
+        var krediTuru = "";
+        if (krediTuruPicker.SelectedItem != null)
+        {
+            krediTuru = krediTuruPicker.SelectedItem.ToString();
+        }
+        var tutar = 0.0;
+        var faizOrani = 0.0;
+        var vade = 0;
 
-        Toplam = 0;
-        taksit = 0;
-
-        BrutFaiz = (Oran + Oran + (10 / 100) + Oran + (15 / 100)) / 100;
-        taksit = (int)(Math.Pow(1 + BrutFaiz, Vade) * BrutFaiz / (Math.Pow(1 + BrutFaiz, Vade) - 1) * Tutar);
-        Toplam = taksit * Vade;
-
+        if (double.TryParse(tutarEntry.Text, NumberStyles.AllowDecimalPoint | NumberStyles.AllowThousands, culture, out tutar) && double.TryParse(faizEntry.Text, out faizOrani) && int.TryParse(vadeEntry.Text, out vade))
+        {
+            var (taksit, toplam, toplamFaiz) = Hesapla(krediTuru, tutar, faizOrani, vade);
+            taksitLabel.Text = taksit.ToString("C2");
+            toplamLabel.Text = toplam.ToString("C2");
+            faizLabel.Text = toplamFaiz.ToString("C2");
+        }
+        else
+        {
+            DisplayAlert("Hata", "Lütfen geçerli bir tutar, faiz oranı ve vade girin.", "Tamam");
+        }
     }
 
-    private void stepper2_ValueChanged(object sender, ValueChangedEventArgs e)
+    public static (double, double, double) Hesapla(string krediTuru, double tutar, double faizOrani, int vade)
     {
-        var stepper1 = sender as Stepper;
-        Tutar.Text = stepper1.Value.ToString("F2");
+        var (kkdfOrani, bsmvOrani) = GetKkdfAndBsmv(krediTuru);
+
+        // Brüt faiz oranını hesapla
+        var brutFaiz = ((faizOrani + (faizOrani * bsmvOrani) + (faizOrani * kkdfOrani)) / 100);
+
+        // Aylık taksit tutarını hesapla
+        var taksit = ((Math.Pow(1 + brutFaiz, vade) * brutFaiz) / (Math.Pow(1 + brutFaiz, vade) - 1)) * tutar;
+
+        // Toplam ödeme tutarını hesapla
+        var toplam = taksit * vade;
+
+        // Toplam faiz tutarını hesapla
+        var toplamFaiz = toplam - tutar;
+
+        // Sonuçları tuple olarak döndür
+        return (taksit, toplam, toplamFaiz);
     }
 }
