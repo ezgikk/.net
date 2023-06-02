@@ -27,23 +27,24 @@
 
                 <Label x:Name="IhtiyacKredisi" Text="İhtiyaç Kredisi" TextColor="BlueViolet" FontSize="30"
                 FontAttributes="Bold,Italic" Grid.Row="0" HorizontalOptions="Center" Style="{StaticResource Baslik}"/>
-                
+                <Picker Grid.Row="1" Grid.Column="1" x:Name="krediTuruPicker">
+                    <Picker.Items>
+                        <x:String>İhtiyaç Kredisi</x:String>
+                        <x:String>Konut Kredisi</x:String>
+                        <x:String>Taşıt Kredisi</x:String>
+                        <x:String>Ticari Kredi</x:String>
+                    </Picker.Items>
+                </Picker>
+
 
                 <Grid Grid.Row="1" ColumnDefinitions="Auto, *" ColumnSpacing="10" Margin="20" 
               RowDefinitions="Auto, Auto, Auto" RowSpacing="5 ">
-                    <Label Grid.Row="0" Text="Kredi Tutarı(TL)"/>
+                    <Label Grid.Row="0" Text="Kredi Tutarı(TL)" />
+                    <Entry  Grid.Column="1" Grid.Row="0" Placeholder="Kredi Tutarı" x:Name="tutarEntry" Keyboard="Numeric"/>
                     <Label  Grid.Row="1" Text="Faiz Oranı(%)"/>
+                    <Entry  Grid.Column="1" Grid.Row="1" Placeholder="Faiz Oranı" x:Name="faizEntry" Keyboard="Numeric"/>
                     <Label  Grid.Row="2" Text="Vade(Ay)"/>
-
-
-
-                    <Entry x:Name="Tutar" Grid.Column="1" Grid.Row="0" Placeholder="Kredi Tutarı"/>
-                    <Entry x:Name="Oran" Grid.Column="1" Grid.Row="1" Placeholder="Faiz Oranı"/>
-                    <Entry x:Name="Vade" Grid.Column="1" Grid.Row="2" Placeholder="Vade"/>
-
-
-
-
+                    <Entry  Grid.Column="1" Grid.Row="2" Placeholder="Vade" x:Name="vadeEntry" Keyboard="Numeric" />
                 </Grid>
                 
                 
@@ -51,31 +52,31 @@
             </Grid>
             <HorizontalStackLayout HorizontalOptions="Center">
 
-                <Label Text="Aylık Taksit:" Grid.Row="0" Background="beige" BackgroundColor="AliceBlue" TextColor="Black" HorizontalOptions="CenterAndExpand"/>
-                <Entry Placeholder="Aylık Taksit:" Grid.Row="0" Grid.Column="0" Background="beige" BackgroundColor="AliceBlue" TextColor="Black" HorizontalOptions="CenterAndExpand"/>
-            </HorizontalStackLayout>
-            <HorizontalStackLayout HorizontalOptions="Center">
-                <Label Text="Toplam ödeme:" Grid.Row="0" Background="beige" BackgroundColor="AliceBlue" TextColor="Black" HorizontalOptions="Center"/>
-                <Entry Placeholder="Toplam ödeme:" Grid.Row="0" Grid.Column="1" Background="beige" BackgroundColor="AliceBlue" TextColor="Black" HorizontalOptions="Center"/>
-            </HorizontalStackLayout >
-            <HorizontalStackLayout HorizontalOptions="Center">
-                <Label Text="Toplam Faiz:" Grid.Row="0" Background="beige" BackgroundColor="AliceBlue" TextColor="Black" HorizontalOptions="Center"/>
-                
-                
-                <Entry Placeholder="Toplam Faiz:" Grid.Row="0" Grid.Column="2" Background="beige" BackgroundColor="AliceBlue" TextColor="Black" HorizontalOptions="Center"/>
+  
 
             </HorizontalStackLayout>
+            
+            
+
+         
+            <Label Grid.Row="6" Text="Aylık Taksit:" VerticalOptions="Center" />
+
+            <Label Grid.Row="6" Grid.Column="1" x:Name="taksitLabel" />
+
+            <Label Grid.Row="7" Text="Toplam Ödeme:" VerticalOptions="Center" />
+
+            <Label Grid.Row="7" Grid.Column="1" x:Name="toplamLabel" />
+
+            <Label Grid.Row="8" Text="Toplam Faiz:" VerticalOptions="Center" />
+
+            <Label Grid.Row="8" Grid.Column="1" x:Name="faizLabel" />
+
+
             <Button Grid.Row="5"
                 
                 Text="Hesapla"
                 Clicked="CounterBtn_Clicked"
                 HorizontalOptions="Center"/>
-            
-
-
-
-
-
 
 
 
@@ -83,9 +84,11 @@
 
         </VerticalStackLayout>
     </ScrollView>
+    
 
 
 
 
 </ContentPage>
+
 
