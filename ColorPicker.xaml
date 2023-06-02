@@ -43,5 +43,9 @@
             <BoxView Color="Black" HeightRequest="100" WidthRequest="100" />
             
         </StackLayout>
+        <StackLayout>
+            <Button Text = "Arka plan rengini değiştir"  TextColor="Black"   VerticalOptions="Center" HorizontalOptions="Center" Background="white"
+                Clicked="ChangeBackgroundColor" />
+        </StackLayout>
     </VerticalStackLayout>
 </ContentPage>
