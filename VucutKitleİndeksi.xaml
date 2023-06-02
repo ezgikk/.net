@@ -23,7 +23,7 @@
              Spacing="-10" Padding="0" >
             <Label Text="Kilo(KG):" Grid.Row="0" Grid.Column="0" VerticalTextAlignment="Start" TextDecorations="Underline" FontSize="15" TextColor="Brown" />
 
-            <Entry x:Name="kilo" Placeholder="Kilogram" VerticalTextAlignment="Center" Grid.Row="0" Grid.Column="0" Keyboard="Email" FontSize="15"   />
+            <Entry x:Name="kiloEntry"  Placeholder="Kilogram" VerticalTextAlignment="Center" Grid.Row="0" Grid.Column="0" Keyboard="Email" FontSize="15"   />
             <!-- <Slider ValueChanged="Slider_ValueChanged"  Value="10"  MinimumTrackColor="Beige" MaximumTrackColor="Brown"
                     BackgroundColor="Aquamarine" Minimum="0" Maximum="500" > 
             </Slider> -->
@@ -36,7 +36,7 @@
         <StackLayout  Spacing="-10" Padding="0">
 
             <Label Text="Boy(cm):" Grid.Row="3" Grid.Column="1" VerticalTextAlignment="Start" TextDecorations="Underline" FontSize="15" TextColor="Brown"/>
-            <Entry x:Name="boy" Placeholder="Boyunuz" Grid.Row="3" Grid.Column="0" Keyboard="Email" FontSize="15" VerticalTextAlignment="Center" />
+            <Entry x:Name="boyEntry" Placeholder="Boyunuz" Grid.Row="3" Grid.Column="0" Keyboard="Email" FontSize="15" VerticalTextAlignment="Center" />
             <Stepper x:Name="stepper2" 
                 Minimum="0" 
                      Maximum="300" 
@@ -53,6 +53,9 @@
                 Clicked="CounterBtn_Clicked"
                 HorizontalOptions="Center"
                     BackgroundColor="BurlyWood"/>
+        <StackLayout Margin="0,20,0,0">
+            <Label x:Name="sonucLabel" Text="" FontSize="Medium" TextColor="Black" HorizontalTextAlignment="Center"/>
+        </StackLayout>
 
     </VerticalStackLayout>
     
